@@ -1,0 +1,9 @@
+C:\Users\kaan\source\repos\NetCoreExamp\NetCoreExamp\bin\Debug\netstandard2.0\NetCoreExamp.deps.json
+C:\Users\kaan\source\repos\NetCoreExamp\NetCoreExamp\bin\Debug\netstandard2.0\NetCoreExamp.dll
+C:\Users\kaan\source\repos\NetCoreExamp\NetCoreExamp\bin\Debug\netstandard2.0\NetCoreExamp.pdb
+C:\Users\kaan\source\repos\NetCoreExamp\NetCoreExamp\obj\Debug\netstandard2.0\NetCoreExamp.csprojAssemblyReference.cache
+C:\Users\kaan\source\repos\NetCoreExamp\NetCoreExamp\obj\Debug\netstandard2.0\NetCoreExamp.AssemblyInfoInputs.cache
+C:\Users\kaan\source\repos\NetCoreExamp\NetCoreExamp\obj\Debug\netstandard2.0\NetCoreExamp.AssemblyInfo.cs
+C:\Users\kaan\source\repos\NetCoreExamp\NetCoreExamp\obj\Debug\netstandard2.0\NetCoreExamp.csproj.CoreCompileInputs.cache
+C:\Users\kaan\source\repos\NetCoreExamp\NetCoreExamp\obj\Debug\netstandard2.0\NetCoreExamp.dll
+C:\Users\kaan\source\repos\NetCoreExamp\NetCoreExamp\obj\Debug\netstandard2.0\NetCoreExamp.pdb

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreExamp", "NetCoreExamp\NetCoreExamp.csproj", "{A8B21C62-6F8D-4CD1-BCFC-DBD9BB0E1A00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassMetotExamp", "ClassMetotExamp\ClassMetotExamp.csproj", "{DB5AE8F3-EAF4-4AF6-A193-2F68EF01E4D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8B21C62-6F8D-4CD1-BCFC-DBD9BB0E1A00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8B21C62-6F8D-4CD1-BCFC-DBD9BB0E1A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8B21C62-6F8D-4CD1-BCFC-DBD9BB0E1A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8B21C62-6F8D-4CD1-BCFC-DBD9BB0E1A00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB5AE8F3-EAF4-4AF6-A193-2F68EF01E4D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB5AE8F3-EAF4-4AF6-A193-2F68EF01E4D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB5AE8F3-EAF4-4AF6-A193-2F68EF01E4D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB5AE8F3-EAF4-4AF6-A193-2F68EF01E4D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {339C03E4-8807-4E92-A7AC-55131D7DC62B}
+	EndGlobalSection
+EndGlobal

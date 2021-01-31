@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "FSAgtvD9Cs8jwRSNJr2U7avfkBvQQNav/FgbsKQouhqKSKZWfRf26Moidsk5A2dd5h87TUJx++PckeJJ1VRfvw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\kaan\\source\\repos\\NetCoreExamp\\NetCoreExamp\\NetCoreExamp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kaan\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\kaan\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ClassMetotExample
+namespace ClassMetotExamp
 {
     class Client
     {

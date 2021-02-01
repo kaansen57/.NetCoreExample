@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ClassMetotExample
+namespace ClassMetotExamp
 {
     class Program
     {

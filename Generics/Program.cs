@@ -25,10 +25,24 @@ namespace Generics
 
             Console.WriteLine(myDictionary.Count);
 
+            myDictionary.ForEach((myDictionary.Keys, myDictionary.Values) =>
+            Console.WriteLine(x, y));
+
             for (int i = 0; i < myDictionary.Count; i++)
             {
                 Console.WriteLine("Key: "+myDictionary.Keys[i] + " "+"Value: "+myDictionary.Values[i]);
             }
         }
+        public static void ForEach<TKey, TValue>(
+        this Dictionary<TKey, TValue> dictionary,
+        Action<TKey, TValue> action)
+        {
+
+            foreach (KeyValuePair<TKey, TValue> pair in dictionary)
+            {
+                action(pair.Key, pair.Value);
+            }
+        }
     }
+
 }

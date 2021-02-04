@@ -18,12 +18,9 @@ namespace Interface
             student.LastName = "Doe";
             student.StudentNumber = "5678";
 
-
             PersonManager personManager = new PersonManager();
             personManager.Add(customer);
             personManager.Add(student);
-
-
 
         }
     }

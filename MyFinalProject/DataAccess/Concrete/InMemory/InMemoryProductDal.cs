@@ -55,7 +55,6 @@ namespace DataAccess.Concrete.InMemory
         {
             Product updateData = null;
             updateData = _products.SingleOrDefault(x => x.ProductId == product.ProductId);
-
             updateData.ProductId = product.ProductId;
             updateData.ProductName = product.ProductName;
 

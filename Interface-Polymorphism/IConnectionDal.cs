@@ -7,10 +7,10 @@ namespace Interface_Polymorphism
     interface IConnectionDal
     {
 
-        public void Insert();
+        void Insert();
 
         void Delete();
         void Update();
-        
+
     }
 }

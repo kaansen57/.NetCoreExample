@@ -4,12 +4,13 @@ using System.Text;
 
 namespace AbstractInterfaces
 {
-    class IhtiyacKrediManager : ICreditManager
+    class DatabaseLogService : ILoggerService
     {
-        public void CreditCalc()
+        public void Log()
         {
-            Console.WriteLine(" İhtiyaç ");
+            Console.WriteLine("Database Log");
         }
-        
     }
+
+   
 }

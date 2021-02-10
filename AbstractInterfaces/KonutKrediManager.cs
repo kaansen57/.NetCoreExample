@@ -8,7 +8,7 @@ namespace AbstractInterfaces
     {
         public void CreditCalc()
         {
-           
+            Console.WriteLine("Konut ");
         }
     }
 }

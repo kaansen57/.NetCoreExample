@@ -15,5 +15,7 @@ namespace Business.Abstract
         List<Car> GetAll(int password);
 
         List<Car> GetById(int brandId);
+
+       void BrandColorGet();
     }
 }

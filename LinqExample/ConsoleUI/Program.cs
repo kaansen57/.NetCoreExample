@@ -37,6 +37,9 @@ namespace ConsoleUI
                 Console.WriteLine(item.Id +" "+item.BrandId +" " +item.Description+" "+item.ModelYear);
             }
             Console.WriteLine("---------------------------------");
+
+            carManager.BrandColorGet();
+
         }
     }
 }

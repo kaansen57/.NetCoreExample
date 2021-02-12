@@ -16,7 +16,7 @@ namespace DataAccess.Abstract
 
         List<Car> GetById(int brandId);
 
-
+        List<CarDTO> BrandColorGet();
 
     }
 }

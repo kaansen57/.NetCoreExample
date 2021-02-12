@@ -49,7 +49,6 @@ namespace Business.Concrete
             {
                 throw new Exception();
             }
-            
         }
 
         public List<Car> GetById(int brandId)
@@ -64,6 +63,9 @@ namespace Business.Concrete
             }
         }
 
-       
+        public void BrandColorGet()
+        {
+             _carDal.BrandColorGet();
+        }
     }
 }

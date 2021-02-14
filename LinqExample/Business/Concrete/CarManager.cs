@@ -18,7 +18,7 @@ namespace Business.Concrete
 
         public void Add(Car car)
         {
-            if (car.Id >= 0)
+            if (car.Id >= 0 && (car.ModelYear.Length <= 4  && car.ModelYear.Length > 0) && car.DailyPrice > 0)
             {
                 _carDal.Add(car);
             }
@@ -53,19 +53,17 @@ namespace Business.Concrete
 
         public List<Car> GetById(int brandId)
         {
-            if(brandId >= 3)
-            {
-                return _carDal.GetById(brandId);
-            }
-            else
-            {
-                throw new Exception();
-            }
+            return _carDal.GetAll(p => p.BrandId == brandId);
         }
 
         public void BrandColorGet()
         {
-             _carDal.BrandColorGet();
+            throw new NotImplementedException();
+        }
+
+        public List<Car> GetUnitPriceFilter(int min, int max)
+        {
+            return _carDal.GetAll(p => p.DailyPrice > min && p.DailyPrice < max);
         }
     }
 }

@@ -1,0 +1,24 @@
+﻿using Entities.Concrete;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace DataAccess.Concrete.EntityFramework
+{
+    //context nesnesi , proje classlarını ve db tablolalarını ilişkilendirir.
+    public class CarContext :DbContext
+    {
+        //Bu metot ile hangi veritabanıyla ilişkili olduğunun ayarlarını yapıyoruz.
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            //trusted_connection şifresiz veritabanına bağlanmayı sağlar.
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=Cars;Trusted_Connection=true");
+        }
+
+        public DbSet<Car> Car { get; set; }
+        public DbSet<Brand> Brand { get; set; }
+        public DbSet<Color> Color { get; set; }
+
+    }
+}

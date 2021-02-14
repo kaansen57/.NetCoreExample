@@ -16,6 +16,8 @@ namespace Business.Abstract
 
         List<Car> GetById(int brandId);
 
+        List<Car> GetUnitPriceFilter(int min, int max);
+
        void BrandColorGet();
     }
 }

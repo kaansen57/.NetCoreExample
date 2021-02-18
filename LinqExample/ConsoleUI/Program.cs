@@ -69,12 +69,12 @@ namespace ConsoleUI
             {
                 Console.WriteLine(item.ColorId + " "+item.ColorName);
             }
-            colorManager.Update(color3);
+            //colorManager.Update(color3);
 
-            foreach (var item in colorManager.GetAllList())
-            {
-                Console.WriteLine(item.ColorId + " " + item.ColorName);
-            }
+            //foreach (var item in colorManager.GetAllList())
+            //{
+            //    Console.WriteLine(item.ColorId + " " + item.ColorName);
+            //}
 
             Brand brand1 = new Brand { BrandId = 8, BrandName = "Lamborgini" };
             Brand brand2 = new Brand { BrandId = 9, BrandName = "Audi" };
@@ -85,11 +85,14 @@ namespace ConsoleUI
             {
                 Console.WriteLine(item.BrandId + " "+ item.BrandName);
             }
+            Brand getBrand = brandManager.GetBrand(1);
+            Console.WriteLine(colorManager.GetColor(1));
 
             //brandManager.Delete(brand2);
-            foreach (var item in brandManager.GetAllList())
+
+            foreach (var item in carManager.GetCarDetails())
             {
-                Console.WriteLine(item.BrandId + " " + item.BrandName);
+                Console.WriteLine(item.BrandName + " "+ item.ColorName + " " + item.DailyPrice);
             }
 
         }

@@ -82,6 +82,11 @@ namespace DataAccess.Concrete.InMemory
             return idSelect;
         }
 
+        public List<CarDTO> GetCarDetails()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(Car car)
         {
             var updateCar = _car.SingleOrDefault(x => x.Id == car.Id);

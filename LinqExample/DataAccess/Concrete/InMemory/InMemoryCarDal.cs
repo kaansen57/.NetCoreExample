@@ -53,7 +53,6 @@ namespace DataAccess.Concrete.InMemory
                          join c in _color 
                          on p.ColorId equals c.ColorId
                          select new CarDTO { BrandName = b.BrandName , ColorName = c.ColorName , DailyPrice = p.DailyPrice};
-
         }
 
         public void Delete(Car car)

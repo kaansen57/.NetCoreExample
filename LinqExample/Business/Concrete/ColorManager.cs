@@ -1,0 +1,37 @@
+﻿using Business.Abstract;
+using DataAccess.Abstract;
+using Entities.Concrete;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Business.Concrete
+{
+    public class ColorManager : IColorManager
+    {
+        private IColorDal _color;
+        public ColorManager(IColorDal color)
+        {
+            _color = color;
+        }
+        public void Add(Color brand)
+        {
+            _color.Add(brand);
+        }
+
+        public void Delete(Color brand)
+        {
+            _color.Delete(brand);
+        }
+
+        public List<Color> GetAllList()
+        {
+            return _color.GetAll();
+        }
+
+        public void Update(Color brand)
+        {
+            _color.Update(brand);
+        }
+    }
+}

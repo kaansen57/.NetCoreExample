@@ -29,9 +29,20 @@ namespace Business.Concrete
             return _color.GetAll();
         }
 
+        public Color GetColor(int colorId)
+        {
+            return _color.Get(c=>c.ColorId == colorId);
+        }
+
         public void Update(Color brand)
         {
+            //brand.ColorId = 12;
+            //brand.ColorName = "Güncel Renk";
             _color.Update(brand);
         }
+
+
+
+
     }
 }

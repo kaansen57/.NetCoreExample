@@ -12,5 +12,7 @@ namespace Business.Abstract
         void Update(Brand brand);
 
         List<Brand> GetAllList();
+
+        Brand GetBrand(int brandId);
     }
 }

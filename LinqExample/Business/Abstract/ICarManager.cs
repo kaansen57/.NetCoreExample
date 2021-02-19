@@ -1,4 +1,5 @@
-﻿using DataAccess.Abstract;
+﻿using Core.Utilities.Results;
+using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,9 @@ namespace Business.Abstract
 {
     public interface ICarManager
     {
-        void Add(Car car);
-        void Delete(Car car);
-        void Update(Car car);
+        IResult Add(Car car);
+        IResult Delete(Car car);
+        IResult Update(Car car);
 
         List<Car> GetAll(int password);
 
@@ -18,7 +19,7 @@ namespace Business.Abstract
 
         List<Car> GetUnitPriceFilter(int min, int max);
 
-       void BrandColorGet();
+        IResult BrandColorGet();
 
         List<CarDTO> GetCarDetails();
     }

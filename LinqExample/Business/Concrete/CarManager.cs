@@ -22,12 +22,11 @@ namespace Business.Concrete
             if (car.Id >= 0 && (car.ModelYear.Length <= 4  && car.ModelYear.Length > 0) && car.DailyPrice > 0)
             {
                 _carDal.Add(car);
-                return new Result(true,"Ürün Eklendi");
+                return new SuccessResult("Ürün Eklendi!");
             }
             else
             {
-                return new Result(false, "İşlem Başarısız!");
-                throw new Exception();
+                return new ErrorResult("İşlem Başarısız!");
             }
            
         }
@@ -35,11 +34,13 @@ namespace Business.Concrete
         public IResult Delete(Car car)
         {
             _carDal.Delete(car);
+            return new SuccessResult("Ürün Eklendi!");
         }
 
         public IResult Update(Car car)
         {
             _carDal.Update(car);
+            return new SuccessResult("Ürün Eklendi!");
         }
 
         public List<Car> GetAll(int password)
@@ -59,7 +60,7 @@ namespace Business.Concrete
             return _carDal.GetAll(p => p.BrandId == brandId);
         }
 
-        public void BrandColorGet()
+        public IResult BrandColorGet()
         {
             throw new NotImplementedException();
         }

@@ -56,7 +56,7 @@ namespace ConsoleUI
             //}
 
             //carManager.Add(car1);
-           
+
 
             Color color1 = new Color { ColorId = 7, ColorName = "Fuşya" };
             Color color2 = new Color { ColorId = 8, ColorName = "Turkuaz" };
@@ -67,7 +67,7 @@ namespace ConsoleUI
             //colorManager.Add(color2);
             foreach (var item in colorManager.GetAllList())
             {
-                Console.WriteLine(item.ColorId + " "+item.ColorName);
+                Console.WriteLine(item.ColorId + " " + item.ColorName);
             }
             //colorManager.Update(color3);
 
@@ -83,17 +83,26 @@ namespace ConsoleUI
 
             foreach (var item in brandManager.GetAllList())
             {
-                Console.WriteLine(item.BrandId + " "+ item.BrandName);
+                Console.WriteLine(item.BrandId + " " + item.BrandName);
             }
             Brand getBrand = brandManager.GetBrand(1);
             Console.WriteLine(colorManager.GetColor(1));
 
             //brandManager.Delete(brand2);
 
-            foreach (var item in carManager.GetCarDetails())
+            var result = carManager.GetCarDetails();
+            if (result.Success)
             {
-                Console.WriteLine(item.BrandName + " "+ item.ColorName + " " + item.DailyPrice);
+                foreach (var item in result.Data)
+                {
+                    Console.WriteLine(item.BrandName + " " + item.ColorName + " " + item.DailyPrice);
+                }
             }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+
 
         }
     }

@@ -96,14 +96,13 @@ namespace ConsoleUI
                 foreach (var item in result.Data)
                 {
                     Console.WriteLine(item.BrandName + " " + item.ColorName + " " + item.DailyPrice);
+                    Console.WriteLine(result.Message);
                 }
             }
             else
             {
                 Console.WriteLine(result.Message);
             }
-
-
         }
     }
 }

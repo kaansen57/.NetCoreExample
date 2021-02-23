@@ -20,6 +20,52 @@ namespace ConsoleUI
             //brandManagerTest(brandManager);
 
             //carDtoTest(carManager);
+
+            UserManager userManager = new UserManager(new EfUserDal());
+
+            //userManagerTest(userManager);
+
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+
+            //customerManagerTest(customerManager);
+
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            Console.WriteLine(rentalManager.Delete(new Rental { Id = 3, CarId = 1, CustomerId = 2, RentDate = new DateTime(2021, 03, 1), ReturnDate = new DateTime(2021, 03, 03) }).Message);
+
+        
+        }
+
+        private static void customerManagerTest(CustomerManager customerManager)
+        {
+            Console.WriteLine(customerManager.Add(new Customer { Id = 2, UserId = 2, CompanyName = "Ayancık Rentcar" }).Message);
+        }
+
+        private static void userManagerTest(UserManager userManager)
+        {
+            //var user1 = userManager.Add(new User()
+            //{
+            //    Id = 2,
+            //    FirstName = "Recep",
+            //    LastName = "Şen",
+            //    Email = "recep@outlook.com",
+            //    Password = "123456"
+            //}).Message;
+            //Console.WriteLine(user1);
+            //var user2 = userManager.Delete(new User()
+            //{
+            //    Id = 2,
+            //    FirstName = "Fatma",
+            //    LastName = "Şen",
+            //    Email = "recep@outlook.com",
+            //    Password = "123456"
+            //}).Message;
+            //Console.WriteLine(user2);
+
+            foreach ( var item in userManager.GetAllList().Data)
+            {
+                Console.WriteLine(item.Id + item.FirstName + " "+item.LastName);
+            }
+            Console.WriteLine( userManager.GetCustomer(3).Data.FirstName);
         }
 
         private static void carDtoTest(CarManager carManager)

@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Core.Utilities.Results;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,12 +8,12 @@ namespace Business.Abstract
 {
    public interface IUserManager
     {
-        void Add(User user);
-        void Delete(User user);
-        void Update(User user);
+        IResult Add(User user);
+        IResult Delete(User user);
+        IResult Update(User user);
 
-        List<User> GetAllList();
+        IDataResult<List<User>> GetAllList();
 
-        User GetCustomer(int userId);
+        IDataResult<User> GetCustomer(int userId);
     }
 }

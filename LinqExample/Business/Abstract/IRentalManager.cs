@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Core.Utilities.Results;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,12 +8,12 @@ namespace Business.Abstract
 {
     public interface IRentalManager
     {
-        void Add(Rental rental);
-        void Delete(Rental rental);
-        void Update(Rental rental);
+        IResult Add(Rental rental);
+        IResult Delete(Rental rental);
+        IResult Update(Rental rental);
 
-        List<Rental> GetAllList();
+        IDataResult<List<Rental>> GetAllList();
 
-        Rental GetRental(int rentalId);
+        IDataResult<Rental> GetRental(int rentalId);
     }
 }

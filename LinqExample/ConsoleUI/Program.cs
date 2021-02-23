@@ -30,9 +30,13 @@ namespace ConsoleUI
             //customerManagerTest(customerManager);
 
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
-            Console.WriteLine(rentalManager.Delete(new Rental { Id = 3, CarId = 1, CustomerId = 2, RentDate = new DateTime(2021, 03, 1), ReturnDate = new DateTime(2021, 03, 03) }).Message);
+            //rentalManagerTest(rentalManager);
 
-        
+        }
+
+        private static void rentalManagerTest(RentalManager rentalManager)
+        {
+            Console.WriteLine(rentalManager.Add(new Rental { Id = 4, CarId = 2, CustomerId = 2, RentDate = new DateTime(2021, 03, 1), ReturnDate = new DateTime(2021, 03, 03) }).Message);
         }
 
         private static void customerManagerTest(CustomerManager customerManager)

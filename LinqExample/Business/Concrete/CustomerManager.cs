@@ -21,19 +21,19 @@ namespace Business.Concrete
         public IResult Add(Customer customer)
         {
             _customerDal.Add(customer);
-            return new SuccessResult("başarılı");
+            return new SuccessResult(Messages.ProductAdded);
         }
 
         public IResult Delete(Customer customer)
         {
             _customerDal.Delete(customer);
-            return new SuccessResult("başarılı");
+            return new SuccessResult(Messages.ProductAdded);
         }
 
         public IResult Update(Customer customer)
         {
             _customerDal.Update(customer);
-            return new SuccessResult("başarılı");
+            return new SuccessResult(Messages.ProductAdded);
         }
 
         //public IDataResult<List<Customer>>GetCustomer(int customerId)
@@ -49,9 +49,5 @@ namespace Business.Concrete
             var customer =  _customerDal.GetAll();
             return new SuccessDataResult<List<Customer>>(customer, "başarılı");
         }
-
-      
-
-       
     }
 }

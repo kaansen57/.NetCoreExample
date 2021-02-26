@@ -58,9 +58,9 @@ namespace Business.Concrete
             }
         }
 
-        public IDataResult<List<Car>> GetById(int brandId)
+        public IDataResult<List<Car>> GetById(int carId)
         {
-            return  new SuccessDataResult<List<Car>>(_carDal.GetAll(p => p.BrandId == brandId),Messages.ProductList);
+            return  new SuccessDataResult<List<Car>>(_carDal.GetAll(p => p.Id == carId),Messages.ProductList);
         }
 
         public IResult BrandColorGet()

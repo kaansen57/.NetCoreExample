@@ -63,11 +63,6 @@ namespace Business.Concrete
             return  new SuccessDataResult<List<Car>>(_carDal.GetAll(p => p.Id == carId),Messages.ProductList);
         }
 
-        public IResult BrandColorGet()
-        {
-            throw new NotImplementedException();
-        }
-
         public IDataResult<List<Car>> GetUnitPriceFilter(int min, int max)
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(p => p.DailyPrice > min && p.DailyPrice < max));

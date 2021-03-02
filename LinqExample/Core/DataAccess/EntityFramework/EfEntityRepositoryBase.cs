@@ -16,7 +16,7 @@ namespace Core.DataAccess.EntityFramework
         {   //IDisposable pattern implementation of c#
             //using bloğu , performans için etkili bir yapıdır , bloğun içindeki işlem bitince garbage collector context sınfını bellekten temizler
             //böylelikle performanslı bir ürün ortaya çıkar
-            using (TContext context = new TContext())
+            using (TContext context = new TContext())               
             {
                 var addedEntity = context.Entry(entity);
                 addedEntity.State = EntityState.Added;

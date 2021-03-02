@@ -15,7 +15,6 @@ namespace Business.Abstract
         IDataResult<List<Car>> GetAll(int password);
         IDataResult<List<Car>> GetById(int brandId);
         IDataResult<List<Car>> GetUnitPriceFilter(int min, int max);
-        IResult BrandColorGet();
         IDataResult<List<CarDTO>> GetCarDetails();
     }
 }

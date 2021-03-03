@@ -1,6 +1,8 @@
 ﻿using Business.Abstract;
 using Business.Concrete;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
@@ -51,11 +53,11 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+     
+        
         [HttpPost("add")]
         public IActionResult Add(Car car)
         {
-          
-
             var result = _carManager.Add(car);
             if (result.Success)
             {

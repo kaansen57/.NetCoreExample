@@ -2,6 +2,7 @@
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -14,18 +15,33 @@ namespace Business.Concrete
     public class CarManager : ICarManager
     {
         private ICarDal _carDal;
+        IBrandManager _brandManager;
+      
 
-        public CarManager(ICarDal carDal)
+        //bir entity manager kendi yapısındaki dal hariç başka yapıyı enjekte edemez
+        //dependecy enjection
+        public CarManager(ICarDal carDal , IBrandManager brandManager)
         {
             _carDal = carDal;
+            _brandManager = brandManager;
+         
         }
 
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
-                _carDal.Add(car);
-                return new SuccessResult(Messages.ProductAdded);
-           
+         IResult result = BusinessRule.Run(
+                CheckBrandCountCorrect(car.BrandId)
+                ,CheckDuplicateCarName(car.CarName)
+                 ,CheckBrandLimit()
+                );
+        
+            if (result != null)
+            {
+                return result;
+            }
+            _carDal.Add(car);
+            return new SuccessResult(Messages.ProductAdded);
         }
 
         public IResult Delete(Car car)
@@ -67,7 +83,39 @@ namespace Business.Concrete
             var cardto = _carDal.GetCarDetails();
             return new SuccessDataResult<List<CarDTO>>(cardto); 
         }
-
       
+         private IResult CheckBrandCountCorrect(int brandId)
+        {
+              
+            var result = _carDal.GetAll(x => x.BrandId == brandId).Count;
+            if (result > 2)
+            {
+                return new ErrorResult("2den fazla");
+            }
+            return new SuccessResult();
+        }
+
+        private IResult CheckDuplicateCarName(string carName)
+        {
+            //var result = _carDal.GetAll(x => x.CarName == carName).Any(); 
+            // eğer böyle belirtilen kriterde data varsa true döner
+            var result = _carDal.GetAll(x => x.CarName == carName).Count;
+            if (result>0)
+            {
+                return new ErrorResult("Aynı isimde data mevcut");
+            }
+            return new SuccessResult();
+        }
+
+        private IResult CheckBrandLimit()
+        {
+            var result = _brandManager.GetAll().Data.Count;
+            if (result > 7)
+            {
+                return new ErrorResult("Marka limiti aşıldı");
+            }
+            return new SuccessResult();
+        }
+
     }
 }

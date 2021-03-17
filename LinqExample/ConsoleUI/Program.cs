@@ -10,7 +10,7 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarManager carManager = new CarManager(new EfCarDal());
+            CarManager carManager = new CarManager(new EfCarDal(),new BrandManager(new EfBrandDal()));
             //carManagerTest(carManager);
 
             ColorManager colorManager = new ColorManager(new EfColorDal());

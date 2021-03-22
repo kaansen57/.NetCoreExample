@@ -29,6 +29,7 @@ namespace WebAPI.Controllers
         {
             _carManager = carManager;
         }
+
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
@@ -52,8 +53,6 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-
-     
         
         [HttpPost("add")]
         public IActionResult Add(Car car)

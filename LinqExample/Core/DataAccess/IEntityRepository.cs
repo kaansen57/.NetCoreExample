@@ -19,8 +19,6 @@ namespace Core.Abstract
         void Add(T entity);
         void Delete(T entity);
         void Update(T entity);
-
-        //List<T> GetAll();
         
     }
 }

@@ -27,7 +27,7 @@ namespace Business.Concrete
             _brandManager = brandManager;
          
         }
-        [SecuredOperation("Admin")]
+        [SecuredOperation("Admin,User")]
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
@@ -91,7 +91,7 @@ namespace Business.Concrete
             var result = _carDal.GetAll(x => x.BrandId == brandId).Count;
             if (result > 2)
             {
-                return new ErrorResult("2den fazla");
+                return new ErrorResult("2den fazla brand idye kayıtlı");
             }
             return new SuccessResult();
         }
@@ -111,7 +111,7 @@ namespace Business.Concrete
         private IResult CheckBrandLimit()
         {
             var result = _brandManager.GetAll().Data.Count;
-            if (result > 7)
+            if (result > 10)
             {
                 return new ErrorResult("Marka limiti aşıldı");
             }

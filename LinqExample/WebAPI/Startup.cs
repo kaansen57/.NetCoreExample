@@ -34,14 +34,16 @@ namespace WebAPI
         }
 
         public IConfiguration Configuration { get; }
+        readonly string allowSpecificOrigins = "_allowSpecificOrigins";
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddControllers();
             //services.AddSingleton<ICarManager,CarManager>();
             //services.AddSingleton<ICarDal,EfCarDal>();
-           
+            
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
@@ -62,6 +64,16 @@ namespace WebAPI
             services.AddDependencyResolvers(new ICoreModule[] { 
                 new CoreModule()
             });
+
+            services.AddCors(options => {
+                options.AddPolicy(allowSpecificOrigins,
+                builder =>
+                {
+                    builder.WithOrigins("http://localhost:4200")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,7 +83,6 @@ namespace WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-            
 
             app.UseHttpsRedirection();
 
@@ -82,6 +93,8 @@ namespace WebAPI
             app.UseAuthorization();
 
             app.UseStaticFiles();
+
+            app.UseCors(allowSpecificOrigins);
 
             app.UseEndpoints(endpoints =>
             {

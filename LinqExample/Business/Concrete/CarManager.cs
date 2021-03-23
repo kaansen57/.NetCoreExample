@@ -2,6 +2,9 @@
 using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
@@ -29,6 +32,7 @@ namespace Business.Concrete
         }
         [SecuredOperation("Admin,User")]
         [ValidationAspect(typeof(CarValidator))]
+        [CacheRemoveAspect("ICarManager.Get")]
         public IResult Add(Car car)
         {
          IResult result = BusinessRule.Run(
@@ -51,12 +55,17 @@ namespace Business.Concrete
             return new SuccessResult("Ürün Eklendi!");
         }
 
+        [SecuredOperation("Admin,User")]
+        [ValidationAspect(typeof(CarValidator))]
+        [CacheRemoveAspect("ICarManager.Get")]
         public IResult Update(Car car)
         {
             _carDal.Update(car);
             return new SuccessResult("Ürün Eklendi!");
         }
 
+        [CacheAspect]
+        [PerformanceAspect(5)]
         public IDataResult<List<Car>> GetAll(int password)
         {
             if (password == 1234)
@@ -69,6 +78,7 @@ namespace Business.Concrete
             }
         }
 
+        [CacheAspect]
         public IDataResult<List<Car>> GetById(int carId)
         {
             return  new SuccessDataResult<List<Car>>(_carDal.GetAll(p => p.Id == carId),Messages.ProductList);
@@ -118,5 +128,16 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        [TransactionScopeAspect]
+        public IResult AddTransactionalTest(Car car)
+        {
+            Add(car);
+            if (car.DailyPrice < 400)
+            {
+                throw new Exception("");
+            }
+            Add(car);
+            return new SuccessResult();
+        }
     }
 }
